@@ -8,5 +8,5 @@
       apt:
         update_cache: yes
         upgrade: yes
-    - name: import disk playbook
-      import_playbook: disk-space.yaml
+    - name: get disk space
+      include_tasks: disk-space.yaml
