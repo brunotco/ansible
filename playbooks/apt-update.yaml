@@ -8,5 +8,5 @@
       apt:
         update_cache: yes
         upgrade: yes
-    - name: get disk space
-      include_tasks: disk-space.yaml
+    - name: test part
+      include_tasks: test.yaml
