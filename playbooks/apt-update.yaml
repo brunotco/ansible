@@ -8,5 +8,5 @@
       apt:
         update_cache: yes
         upgrade: yes
-    - name: check for system reboot
-      include_tasks: reboot-required.yaml
+    - name: get disk space
+      include_tasks: disk-space.yaml
