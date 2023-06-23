@@ -8,4 +8,5 @@
       apt:
         update_cache: yes
         upgrade: yes
-    - import_playbook: disk-space.yaml
+    - name: import disk playbook
+      import_playbook: disk-space.yaml
