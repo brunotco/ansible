@@ -1,4 +1,4 @@
-- name: update apt packages
-  apt:
-    update_cache: yes
-    upgrade: yes
+---
+- name: print message
+  debug:
+    msg: "Run test task"
