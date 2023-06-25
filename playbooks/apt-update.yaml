@@ -8,4 +8,4 @@
         update_cache: yes
         upgrade: yes
     - name: include part
-      include_tasks: test.yaml
+      include_tasks: disk-space.yaml
