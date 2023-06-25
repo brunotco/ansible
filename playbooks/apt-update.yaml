@@ -1,12 +1,11 @@
 ---
-- hosts: all
-
+- name: Update system
+  hosts: all
   become: true
   tasks:
-    # Upgrade 
-    - name: update apt packages
+    - name: update packages
       apt:
         update_cache: yes
         upgrade: yes
-    - name: test part
+    - name: include part
       include_tasks: test.yaml
