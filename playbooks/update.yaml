@@ -1,9 +1,9 @@
 ---
-- name: Update system
+- name: Update System
   hosts: all
   become: true
   tasks:
-    - name: import apt update
+    - name: include apt update
       import_tasks: tasks/apt-update.yaml
-    - name: include part
-      import_tasks: tasks/disk-space.yaml
+    - name: include reboot required
+      import_tasks: tasks/reboot-required.yaml
