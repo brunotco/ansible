@@ -1,15 +1,15 @@
 ---
 - name: send discord message
-      uri:
-        url: "https://discord.com/api/webhooks/1123257050592448512/7SOy3C0IL6QpIpFwUHV5STVIdwvudmwhGfbmzPGJZ4Ggx3WYNR14F23KGkpekxPz2Oiu"
-        method: POST
-        body_format: json
-        # headers:
-          # Content-Type: application/json
-        status_code: 204
-        return_content: no
-        validate_certs: no
-        body:
-          embeds:
-            - title: Title
-            - description: Message
+    uri:
+      url: "https://discord.com/api/webhooks/1123257050592448512/7SOy3C0IL6QpIpFwUHV5STVIdwvudmwhGfbmzPGJZ4Ggx3WYNR14F23KGkpekxPz2Oiu"
+      method: POST
+      body_format: json
+      # headers:
+        # Content-Type: application/json
+      status_code: 204
+      return_content: no
+      validate_certs: no
+      body:
+        embeds:
+          - title: Title
+          - description: Message
