@@ -3,6 +3,6 @@
   hosts: all
   become: true
   tasks:
-    - include_tasks: tasks/reboot-required.yaml
+    # - include_tasks: tasks/reboot-required.yaml
     - include_tasks: notification/notify-reboot.yaml
-      when: reboot_required.stat.exists
+      # when: reboot_required.stat.exists
