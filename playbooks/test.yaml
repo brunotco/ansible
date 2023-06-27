@@ -1,4 +1,8 @@
 ---
-- name: print message
-  debug:
-    msg: "Run test task"
+- name: Test 1
+  hosts: all
+  become: true
+  tasks:
+    - name: Print Message
+      debug:
+        msg: "This is a test"
