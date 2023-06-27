@@ -2,3 +2,4 @@
 - name: Notify Debug
   debug:
     msg: "Test"
+  when: reboot_required.stat.exists
