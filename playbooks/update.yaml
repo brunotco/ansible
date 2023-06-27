@@ -4,6 +4,6 @@
   become: true
   tasks:
     - name: import apt update
-      include_tasks: tasks/apt-update.yaml
+      import_tasks: tasks/apt-update.yaml
     - name: include part
-      include_tasks: tasks/disk-space.yaml
+      import_tasks: tasks/disk-space.yaml
