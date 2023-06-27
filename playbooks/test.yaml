@@ -16,7 +16,7 @@
         body:
           embeds:
             - title: Title
-            - description: Message
+            - description: "{{discord_msg}}"
     # - include_tasks: tasks/reboot-required.yaml
     - include_tasks: notification/notify-reboot.yaml
       # when: reboot_required.stat.exists
