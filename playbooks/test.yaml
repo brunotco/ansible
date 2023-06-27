@@ -3,8 +3,6 @@
   hosts: all
   become: true
   tasks:
-    - name: include reboot required
-      include_tasks: tasks/reboot-required.yaml
-    - name: include notify debug
-      include_tasks: notification/notify-debug.yaml
+    - include_tasks: tasks/reboot-required.yaml
+    - include_tasks: notification/notify-debug.yaml
       when: reboot_required.stat.exists
