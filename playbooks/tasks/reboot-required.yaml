@@ -3,6 +3,6 @@
   stat:
     path: /var/run/reboot-required
   register: reboot_required
-- shell: echo "Requires reboot"
-  register: MSG
-  when: reboot_required.stat.exists
+# - shell: echo "Requires reboot"
+#   register: MSG
+#   when: reboot_required.stat.exists

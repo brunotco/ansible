@@ -1,0 +1,10 @@
+---
+- name: send discord message
+  uri:
+    url: "discord://qhZzlgjNSkh4ZYu-IoLQkzLHJ1AKnAVBeOVlmHsA5ZUZrZB9WI-P55PNeI0lJlHM1BCM@1048222084242882601"
+    method: POST
+    body_format: json
+    body: '{"content": "Reboot required"}'
+    headers:
+      Content-Type: application/json
+    status_code: 204
