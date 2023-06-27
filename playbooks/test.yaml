@@ -1,8 +1,9 @@
 ---
-- name: Test 1
+- name: Test
   hosts: all
   become: true
   tasks:
-    - name: Print Message
-      debug:
-        msg: "This is a test"
+    - name: include reboot required
+      include_tasks: tasks/reboot-required.yaml
+    - name: include notify debug
+      include_tasks: notification/notify-debug.yaml
