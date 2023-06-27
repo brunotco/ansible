@@ -1,5 +1,5 @@
 ---
 - name: Notify Debug
   debug:
-    msg: "Test"
-  when: reboot_required.stat.exists
+    msg: "{{MSG}}"
+  when: MSG.exists
