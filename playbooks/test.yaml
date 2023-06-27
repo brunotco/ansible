@@ -7,4 +7,4 @@
       include_tasks: tasks/reboot-required.yaml
     - name: include notify debug
       include_tasks: notification/notify-debug.yaml
-      when: not_reboot_required.stat.exists
+      when: reboot_required.stat.exists
