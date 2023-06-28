@@ -1,0 +1,6 @@
+---
+- name: Get disk space
+  hosts: all
+  become: true
+  tasks:
+    - include_tasks: tasks/disk-space.yaml
