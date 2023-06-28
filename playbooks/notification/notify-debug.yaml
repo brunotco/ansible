@@ -1,4 +1,4 @@
 ---
 - name: Print Debug Message
   debug:
-    var: "{{msg}}"
+    var: "{{msg.text}}"

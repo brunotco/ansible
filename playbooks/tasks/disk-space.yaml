@@ -2,9 +2,6 @@
 - name: get disk space
   shell: df -h / | awk 'NR==2 {print $5}'
   register: disk_usage
-- name: list disk space
-  debug:
-    msg: "{{discord_url}}"
 - set_fact:
     msg:
       title: "Disk usage"
