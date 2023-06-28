@@ -7,4 +7,4 @@
     msg: "{{disk_usage.stdout}}"
 - set_fact:
     custom_msg: "{{disk_usage.stdout}}"
-- include_tasks: notification/notify-reboot-api.yaml
+- include_tasks: notification/notify-discord-api.yaml
