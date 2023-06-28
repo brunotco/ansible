@@ -5,3 +5,6 @@
 - name: list disk space
   debug:
     msg: "{{disk_usage.stdout}}"
+- set_fact:
+    custom_msg: "{{disk_usage.stdout}}"
+- include_tasks: notification/notify-reboot.yaml
