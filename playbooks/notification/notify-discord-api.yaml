@@ -7,8 +7,8 @@
     body: {
       "embeds": [
         {
-          "title": "Title",
-          "description": "Message",
+          "title": "{{msg.title}}",
+          "description": "{{msg.text}}",
           "color": 23394
         }
       ]
