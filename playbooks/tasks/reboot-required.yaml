@@ -9,6 +9,8 @@
       text: "A reboot is required"
   when: reboot_required.stat.exists
 - include_tasks: notification/notify-debug.yaml
-  when: msg is defined
+  vars:
+    msg: msg
 - include_tasks: notification/notify-discord.yaml
-  when: msg is defined
+  vars:
+    msg: msg
