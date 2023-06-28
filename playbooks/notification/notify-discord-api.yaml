@@ -1,0 +1,6 @@
+---
+- name: send discord message
+  discord:
+    webhook_id: "1123257050592448512"
+    webhook_token: "7SOy3C0IL6QpIpFwUHV5STVIdwvudmwhGfbmzPGJZ4Ggx3WYNR14F23KGkpekxPz2Oiu"
+    content: "{{custom_msg}}"
