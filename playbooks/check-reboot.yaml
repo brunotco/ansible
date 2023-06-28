@@ -3,4 +3,4 @@
   hosts: all
   become: true
   tasks:
-    - import_tasks: tasks/check-reboot.yaml
+    - import_tasks: tasks/check-reboot-required.yaml
