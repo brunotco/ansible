@@ -3,5 +3,4 @@
   hosts: all
   become: true
   tasks:
-    # - include_tasks: tasks/disk-space.yaml
-    - include_tasks: tasks/reboot-required.yaml
+    - include_tasks: tasks/disk-space.yaml

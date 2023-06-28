@@ -6,7 +6,7 @@
 - when: reboot_required.stat.exists
   set_fact:
     msg:
-      title: "Reboot Required - {{inventory_hostname}}"
+      title: "Reboot Required"
       text: "A reboot is required"
 - include_tasks: notification/notify-debug.yaml
 - include_tasks: notification/notify-discord.yaml

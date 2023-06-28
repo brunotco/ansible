@@ -4,7 +4,7 @@
   register: disk_usage
 - set_fact:
     msg:
-      title: "Disk usage"
+      title: "Disk Usage"
       text: "{{disk_usage.stdout}}"
 - include_tasks: notification/notify-debug.yaml
 - include_tasks: notification/notify-discord.yaml

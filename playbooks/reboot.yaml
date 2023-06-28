@@ -1,0 +1,6 @@
+---
+- name: Check Reboot Required
+  hosts: all
+  become: true
+  tasks:
+    - include_tasks: tasks/reboot-required.yaml
