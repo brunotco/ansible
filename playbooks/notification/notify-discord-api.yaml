@@ -2,14 +2,14 @@
 - name: Send Discord Message - Embed
   uri:
     url: "https://discord.com/api/webhooks/1123257050592448512/7SOy3C0IL6QpIpFwUHV5STVIdwvudmwhGfbmzPGJZ4Ggx3WYNR14F23KGkpekxPz2Oiu"
-    method: 'POST'
+    method: POST
     body_format: json
     headers:
       Content-Type: 'multipart/form-data'
     body: {
       'content': 'a',
       'username': "demo",
-      'avatar_url': "https://raw.githubusercontent.com/luther38/ansible_discord_webhook/master/files/ansible_logo.png",
+      # 'avatar_url': "https://raw.githubusercontent.com/luther38/ansible_discord_webhook/master/files/ansible_logo.png",
       'embeds': [
         {
         'title': "work",
