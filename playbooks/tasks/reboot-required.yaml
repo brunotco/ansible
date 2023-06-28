@@ -7,14 +7,16 @@
 #     msg:
 #       title: "Reboot Required"
 #       text: "A reboot is required"
-  when: reboot_required.stat.exists
+#   when: reboot_required.stat.exists
 - import_tasks: notification/notify-debug.yaml
   vars:
     msg:
       title: "Reboot Required"
       text: "A reboot is required"
+  when: reboot_required.stat.exists
 - import_tasks: notification/notify-discord.yaml
   vars:
     msg:
       title: "Reboot Required"
       text: "A reboot is required"
+  when: reboot_required.stat.exists
