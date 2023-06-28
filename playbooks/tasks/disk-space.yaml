@@ -4,7 +4,7 @@
   register: disk_usage
 - name: list disk space
   debug:
-    msg: "{{disk_usage.stdout}}"
+    msg: "{{discord_url}}"
 - set_fact:
     msg:
       title: "Disk usage"
