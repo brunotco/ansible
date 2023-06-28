@@ -3,12 +3,18 @@
   stat:
     path: /var/run/reboot-required
   register: reboot_required
-- set_fact:
+# - set_fact:
+#     msg:
+#       title: "Reboot Required"
+#       text: "A reboot is required"
+  when: reboot_required.stat.exists
+- import_tasks: notification/notify-debug.yaml
+  vars:
     msg:
       title: "Reboot Required"
       text: "A reboot is required"
-  when: reboot_required.stat.exists
-- import_tasks: notification/notify-debug.yaml
-  when: msg is defined
 - import_tasks: notification/notify-discord.yaml
-  when: (msg is defined) and (msg|length > 0)
+  vars:
+    msg:
+      title: "Reboot Required"
+      text: "A reboot is required"
