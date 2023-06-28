@@ -2,13 +2,8 @@
 - name: get disk space
   shell: df -h / | awk 'NR==2 {print $5}'
   register: disk_usage
-- set_fact:
-    msg:
-      title: "Disk Usage"
-      text: "{{disk_usage.stdout}}"
 - import_tasks: notification/notify-discord.yaml
   vars:
     msg:
       title: "Disk Usage"
       text: "{{disk_usage.stdout}}"
-  when: disk_usage.exists
