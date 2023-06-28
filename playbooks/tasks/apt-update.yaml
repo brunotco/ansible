@@ -3,3 +3,9 @@
   apt:
     update_cache: yes
     upgrade: yes
+  register: update_report
+- import_tasks: notification/notify-discord.yaml
+  vars:
+    msg:
+      title: "System Updated"
+      text: "{{update_report.stdout_lines|last}}"
