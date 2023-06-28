@@ -1,6 +1,6 @@
 ---
-- name: Get disk space
+- name: Get Disk Usage
   hosts: all
   become: true
   tasks:
-    - include_tasks: tasks/disk-space.yaml
+    - import_tasks: tasks/disk-space.yaml

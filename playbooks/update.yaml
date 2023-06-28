@@ -3,7 +3,5 @@
   hosts: all
   become: true
   tasks:
-    - name: include apt update
-      import_tasks: tasks/apt-update.yaml
-    - name: include reboot required
-      import_tasks: tasks/reboot-required.yaml
+    - import_tasks: tasks/apt-update.yaml
+    - import_tasks: tasks/reboot-required.yaml
