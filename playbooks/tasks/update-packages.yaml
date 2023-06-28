@@ -9,3 +9,8 @@
     msg:
       title: "System Updated"
       text: "{{update_report.stdout_lines|last}}"
+- import_tasks: notification/notify-debug.yaml
+  vars:
+    msg:
+      title: "System Updated"
+      text: "{{update_report.stdout_lines}}"
