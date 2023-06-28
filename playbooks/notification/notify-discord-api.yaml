@@ -10,7 +10,7 @@
       "embeds": [
         {
           "title": "work",
-          "description": "damnit",
+          "description": "{{custom_msg}}",
           "color": 7506394
         }
       ]
