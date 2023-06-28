@@ -1,5 +1,4 @@
 ---
-- name: Notify Debug
+- name: Print Debug Message
   debug:
-    msg: "{{MSG.stdout}}"
-  # when: MSG.exists
+    var: "{{msg}}"

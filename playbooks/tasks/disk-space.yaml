@@ -9,4 +9,5 @@
     msg:
       title: "Disk usage"
       text: "{{disk_usage.stdout}}"
-- include_tasks: notification/notify-discord-api.yaml
+- include_tasks: notification/notify-debug.yaml
+- include_tasks: notification/notify-discord.yaml
