@@ -7,11 +7,11 @@
     # headers:
     #   Content-Type: 'multipart/form-data'
     body: {
-      "content": "your-message",
       "embeds": [
         {
           "title": "work",
-          "description": "damnit"
+          "description": "damnit",
+          "color": 7506394
         }
       ]
     }
