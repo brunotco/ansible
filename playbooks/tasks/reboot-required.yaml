@@ -10,7 +10,7 @@
   when: reboot_required.stat.exists
 - include_tasks: notification/notify-debug.yaml
   vars:
-    msg: msg
+    msg: "{{msg}}"
 - include_tasks: notification/notify-discord.yaml
   vars:
-    msg: msg
+    msg: "{{msg}}"
