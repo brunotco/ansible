@@ -4,4 +4,4 @@
   register: disk_usage
 - name: list disk space
   debug:
-    msg: disk_usage.stdout[:-1]|int
+    var: disk_usage.stdout
