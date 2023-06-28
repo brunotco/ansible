@@ -6,5 +6,9 @@
     msg:
       title: "Disk Usage"
       text: "{{disk_usage.stdout}}"
-- include_tasks: notification/notify-debug.yaml
-- include_tasks: notification/notify-discord.yaml
+- import_tasks: notification/notify-discord.yaml
+  vars:
+    msg:
+      title: "Disk Usage"
+      text: "{{disk_usage.stdout}}"
+  when: disk_usage.exists
