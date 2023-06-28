@@ -1,6 +1,6 @@
 ---
-- name: Check Reboot Required
+- name: Check Reboot
   hosts: all
   become: true
   tasks:
-    - import_tasks: tasks/reboot-required.yaml
+    - import_tasks: tasks/check-reboot.yaml
