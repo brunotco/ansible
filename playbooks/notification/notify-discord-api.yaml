@@ -6,7 +6,15 @@
     body_format: json
     # headers:
     #   Content-Type: 'multipart/form-data'
-    body: {"content": "your-message"}
+    body: {
+      "content": "your-message",
+      "embeds": [
+        {
+          "title": "work",
+          "description": "damnit"
+        }
+      ]
+    }
     # body: {
     #   'content': 'a',
     #   'username': "demo",
