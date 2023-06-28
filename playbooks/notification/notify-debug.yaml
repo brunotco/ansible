@@ -2,3 +2,5 @@
 - name: Print Debug Message
   debug:
     msg: "{{msg}}"
+- set_fact:
+    msg:
