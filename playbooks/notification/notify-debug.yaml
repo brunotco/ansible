@@ -2,3 +2,4 @@
 - name: Print Debug Message
   debug:
     msg: "{{msg}}"
+  when: msg is defined
