@@ -7,7 +7,7 @@
     msg: "{{msg.text}}"
 - name: Print var msg
   debug:
-    var: "{{msg}}"
+    var: msg
 - name: Print var text
   debug:
-    var: "{{msg.text}}"
+    var: msg.text
