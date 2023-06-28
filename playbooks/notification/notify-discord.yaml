@@ -7,7 +7,7 @@
     body: {
       "embeds": [
         {
-          "title": "{{msg.title}}",
+          "title": "{{msg.title}} - {{inventory_hostname}}",
           "description": "{{msg.text}}",
           "color": 23394
         }
