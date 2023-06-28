@@ -11,4 +11,4 @@
 - import_tasks: notification/notify-debug.yaml
   when: msg is defined
 - import_tasks: notification/notify-discord.yaml
-  when: msg is defined
+  when: (msg is defined) and (msg|length > 0)
