@@ -1,4 +1,13 @@
 ---
-- name: Print Debug Message
+- name: Print msg msg
+  debug:
+    msg: "{{msg}}"
+- name: Print msg text
+  debug:
+    msg: "{{msg.text}}"
+- name: Print var msg
+  debug:
+    var: "{{msg}}"
+- name: Print var text
   debug:
     var: "{{msg.text}}"
