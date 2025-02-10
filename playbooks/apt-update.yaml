@@ -1,8 +1,32 @@
 ---
 - name: Update System
   hosts: all
+  gather_facts: yes
   become: yes
   tasks:
     - name: Get Hostnames
       debug:
         msg: "{{ansible_hostname}}:{{ansible_default_ipv4.address}}"
+
+    - name: update apt packages
+      apt:
+        update_cache: yes
+
+    - name: upgrade apt packages
+      apt:
+        update_cache: yes
+
+    - name: List installed and updated packages
+      shell: grep -E "^$(date +%Y-%m-%d).+ (install|upgrade) " /var/log/dpkg.log |cut -d " " -f 3-5
+      register: result
+
+    - name: Show Output of updated files
+      debug: msg="{{ result.stdout_lines }}"
+
+    - name: Check if reboot is required
+      stat:
+        path: /var/run/reboot-required
+      register: reboot_required_file
+
+    - name: Show Output of required reboots
+      debug: msg="{{ reboot_required_file.stat.exists == true }}"
