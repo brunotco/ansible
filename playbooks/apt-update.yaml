@@ -3,6 +3,12 @@
   hosts: all
   gather_facts: yes
   become: yes
+
+  vars:
+    reboot:
+      title: "Reboot Required"
+      msg: "A reboot is required"
+  
   tasks:
     - name: Get Hostnames
       debug:
@@ -29,11 +35,7 @@
       register: reboot_required_file
 
     - name: Show Output of required reboots
-      vars:
-        msg:
-          title: "Reboot Required"
-          text: "A reboot is required"
-      debug: msg="{{ msg.text }}"
+      debug: msg="{{ reboot.msg }}"
       when: reboot_required_file.stat.exists
 
     - name: Send Discord Message
@@ -41,14 +43,12 @@
         url: "{{discord_url}}"
         method: POST
         body_format: json
-        body: {
-          "embeds": [
-            {
-              "title": "Reboot Required - {{ansible_hostname}}",
-              "description": "A reboot is required",
-              "color": 23394
-            }
-          ]
-        }
-        status_code: 204
+        body:
+          title:
+            content: "{{ reboot.title }} - {{ansible_hostname}}"
+          message:
+            content: "{{ reboot.msg }} \n Current updates: {{ result.stdout_lines }}"
+        priority:
+          content: "5"
+        body_format: form-multipart
       when: reboot_required_file.stat.exists
