@@ -29,4 +29,26 @@
       register: reboot_required_file
 
     - name: Show Output of required reboots
-      debug: msg="{{ reboot_required_file.stat.exists == true }}"
+      vars:
+        msg:
+          title: "Reboot Required"
+          text: "A reboot is required"
+      debug: msg="{{ msg.text }}"
+      when: reboot_required_file.stat.exists
+
+    - name: Send Discord Message
+      uri:
+        url: "{{discord_url}}"
+        method: POST
+        body_format: json
+        body: {
+          "embeds": [
+            {
+              "title": "{{msg.title}} - {{ansible_hostname}}",
+              "description": "{{msg.text}}",
+              "color": 23394
+            }
+          ]
+        }
+        status_code: 204
+      when: msg is defined
