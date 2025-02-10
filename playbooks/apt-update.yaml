@@ -44,8 +44,8 @@
         body: {
           "embeds": [
             {
-              "title": "{{msg.title}} - {{ansible_hostname}}",
-              "description": "{{msg.text}}",
+              "title": "Reboot Required - {{ansible_hostname}}",
+              "description": "A reboot is required",
               "color": 23394
             }
           ]
