@@ -37,6 +37,7 @@
       when: reboot_required_file.stat.exists
 
     - name: Send Discord Message
+      debug: msg="{{ msg.title }}"
       uri:
         url: "{{discord_url}}"
         method: POST
