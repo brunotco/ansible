@@ -42,12 +42,15 @@
       uri:
         url: "{{discord_url}}"
         method: POST
-        body:
-          title:
-            content: "{{ reboot.title }} - {{ansible_hostname}}"
-          message:
-            content: "{{ reboot.msg }} \n Current updates: {{ result.stdout_lines }}"
-          priority:
-            content: "5"
-        body_format: form-multipart
+        body_format: json
+        body: {
+          "embeds": [
+            {
+              "title": "{{ reboot.title }} - {{ ansible_hostname }}",
+              "description": "{{ reboot.msg }} \n Current updates: {{ result.stdout_lines }}",
+              "color": 23394
+            }
+          ]
+        }
+        status_code: 204
       when: reboot_required_file.stat.exists
