@@ -1,7 +1,0 @@
----
-- name: Update System
-  hosts: all
-  become: true
-  tasks:
-    - import_tasks: tasks/update-packages.yaml
-    - import_tasks: tasks/check-reboot-required.yaml
