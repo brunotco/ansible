@@ -42,13 +42,12 @@
       uri:
         url: "{{discord_url}}"
         method: POST
-        body_format: json
         body:
           title:
             content: "{{ reboot.title }} - {{ansible_hostname}}"
           message:
             content: "{{ reboot.msg }} \n Current updates: {{ result.stdout_lines }}"
-        priority:
-          content: "5"
+          priority:
+            content: "5"
         body_format: form-multipart
       when: reboot_required_file.stat.exists
