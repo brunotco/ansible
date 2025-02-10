@@ -38,18 +38,3 @@
 
     - name: Send Discord Message
       debug: msg="{{ msg.title }}"
-      uri:
-        url: "{{discord_url}}"
-        method: POST
-        body_format: json
-        body: {
-          "embeds": [
-            {
-              "title": "{{msg.title}} - {{ansible_hostname}}",
-              "description": "{{msg.text}}",
-              "color": 23394
-            }
-          ]
-        }
-        status_code: 204
-      when: msg is defined
