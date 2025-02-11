@@ -1,1 +1,35 @@
+---
+- name: Reboot system
+  hosts: all
+  gather_facts: yes
+  become: yes
+  become_user: root
 
+  vars:
+    reboot:
+      title: "Reboot Started"
+      msg: "A reboot is in progress"
+  
+  tasks:
+    - name: Get hostnames
+      debug:
+        msg: "{{ ansible_hostname }}:{{ ansible_default_ipv4.address }}"
+
+    - name: Send discord notification
+      uri:
+        url: "{{ discord_url }}"
+        method: POST
+        body_format: json
+        body: {
+          "embeds": [
+            {
+              "title": "{{ reboot.title }}",
+              "description": "{{ ansible_hostname }} \n {{ reboot.msg }}",
+              "color": 23394
+            }
+          ]
+        }
+        status_code: 204
+
+    - name: Rebooting machine
+      shell: shutdown -r
