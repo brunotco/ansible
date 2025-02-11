@@ -22,13 +22,6 @@
       apt:
         update_cache: yes
 
-    - name: List installed and updated packages
-      shell: grep -E "^$(date +%Y-%m-%d).+ (install|upgrade) " /var/log/dpkg.log |cut -d " " -f 3-5
-      register: result
-
-    - name: Show Output of updated files
-      debug: msg="{{ result.stdout_lines }}"
-
     - name: Check if reboot is required
       stat:
         path: /var/run/reboot-required
@@ -40,14 +33,14 @@
 
     - name: Send Discord Message
       uri:
-        url: "{{discord_url}}"
+        url: "{{ discord_url }}"
         method: POST
         body_format: json
         body: {
           "embeds": [
             {
-              "title": "{{ reboot.title }} - {{ ansible_hostname }}",
-              "description": "{{ reboot.msg }} \n Current updates: {{ result.stdout_lines }}",
+              "title": "{{ reboot.title }}",
+              "description": "{{ ansible_hostname }} \n {{ reboot.msg }}",
               "color": 23394
             }
           ]
