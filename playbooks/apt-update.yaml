@@ -1,5 +1,5 @@
 ---
-- name: Update System
+- name: Update system
   hosts: all
   gather_facts: yes
   become: yes
@@ -10,15 +10,15 @@
       msg: "A reboot is required"
   
   tasks:
-    - name: Get Hostnames
+    - name: Get hostnames
       debug:
-        msg: "{{ansible_hostname}}:{{ansible_default_ipv4.address}}"
+        msg: "{{ ansible_hostname }}:{{ ansible_default_ipv4.address }}"
 
-    - name: update apt packages
+    - name: Update apt packages
       apt:
         update_cache: yes
 
-    - name: upgrade apt packages
+    - name: Upgrade apt packages
       apt:
         update_cache: yes
 
@@ -27,11 +27,11 @@
         path: /var/run/reboot-required
       register: reboot_required_file
 
-    - name: Show Output of required reboots
+    - name: Show output of required reboots
       debug: msg="{{ reboot.msg }}"
       when: reboot_required_file.stat.exists
 
-    - name: Send Discord Message
+    - name: Send discord notification
       uri:
         url: "{{ discord_url }}"
         method: POST
