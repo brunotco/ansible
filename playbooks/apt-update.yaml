@@ -2,7 +2,7 @@
 - name: Update system
   hosts: all
   gather_facts: yes
-  become: yes
+  sudo: yes
 
   vars:
     reboot:
